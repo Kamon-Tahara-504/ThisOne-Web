@@ -56,29 +56,16 @@ const DeleteAccountPage: React.FC = () => {
     setError(null);
 
     try {
-      const sessionRes = await supabase.auth.getSession();
-      const accessToken = sessionRes.data.session?.access_token;
-
-      if (!accessToken) {
-        setError('認証情報が取得できませんでした。もう一度ログインしてください。');
-        return;
-      }
-
-      const response = await fetch(
-        'https://<your-project-ref>.functions.supabase.co/delete-account',
+      // ここで Edge Function を呼ぶ（URL を自前で書かない）
+      const { error: funcError } = await supabase.functions.invoke(
+        'delete-account',
         {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${accessToken}`,
-          },
-          body: JSON.stringify({ confirm: true }),
-        },
+          body: { confirm: true },
+        }
       );
 
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}));
-        setError(body.error ?? 'アカウント削除に失敗しました。');
+      if (funcError) {
+        setError(funcError.message ?? 'アカウント削除に失敗しました。');
         return;
       }
 
