@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+a {
+  color: #ffb74d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.8rem;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+.page-container {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.page-container h1 {
+  margin-top: 0;
+  color: #ffb74d;
+}
+
+.page-container h2 {
+  margin-top: 24px;
+  color: #ffcc80;
+}
+
+.page-container p {
+  line-height: 1.7;
+  margin: 8px 0;
+}
+
+.form-field {
+  margin-bottom: 12px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #111;
+  color: #f5f5f5;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+}
+
+button.primary {
+  background-color: #ff8a65;
+  color: #1f1f1f;
+}
+
+button.danger {
+  background-color: #e53935;
+  color: #fff;
+}
+
+.message-success {
+  color: #81c784;
+  margin-top: 8px;
+}
+
+.message-error {
+  color: #e57373;
+  margin-top: 8px;
+}
