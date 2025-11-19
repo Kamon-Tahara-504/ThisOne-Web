@@ -9,7 +9,7 @@ import './index.css';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/ThisOne">
       <Routes>
         {/* 共通レイアウト */}
         <Route element={<Layout />}>
